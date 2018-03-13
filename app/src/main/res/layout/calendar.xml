@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="381dp"
+        android:layout_height="230dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="379dp"
+        android:layout_height="168dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="185dp"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="0"
+                android:background="@drawable/textview_border"
+                android:text=" For the Day:"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textview7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/textview_border"
+                android:clickable="false"
+                android:text=" Status:"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="17dp">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="185dp"
+                android:layout_height="28dp"
+                android:layout_column="1"
+                android:layout_weight="0"
+                android:text="CS HW"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:layout_width="103dp"
+                android:layout_height="match_parent" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="185dp"
+                android:layout_height="28dp"
+                android:layout_column="1"
+                android:layout_weight="0"
+                android:text="Math HW"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:layout_width="103dp"
+                android:layout_height="match_parent" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="185dp"
+                android:layout_height="28dp"
+                android:layout_column="1"
+                android:layout_weight="0"
+                android:text="ASTR 496 Quiz"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:layout_width="103dp"
+                android:layout_height="match_parent" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="185dp"
+                android:layout_height="28dp"
+                android:layout_column="1"
+                android:layout_weight="0"
+                android:text="ASTR 210 Exam"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:layout_width="103dp"
+                android:layout_height="match_parent" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="185dp"
+                android:layout_height="28dp"
+                android:layout_column="1"
+                android:layout_weight="0"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:layout_width="103dp"
+                android:layout_height="match_parent" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="57dp"
+        android:layout_height="51dp"
+        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/searchView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/menu_icon" />
+
+    <SearchView
+        android:id="@+id/searchView2"
+        android:layout_width="259dp"
+        android:layout_height="39dp"
+        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButton5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.222" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="51dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        app:layout_constraintEnd_toStartOf="@+id/searchView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home" />
+
+</android.support.constraint.ConstraintLayout>

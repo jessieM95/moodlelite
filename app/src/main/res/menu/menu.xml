@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myapp="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/action_more"
+        android:title=""
+        myapp:showAsAction="always" >
+        <menu>
+            <item
+                android:id="@+id/user"
+                android:title="User"
+                android:icon="@drawable/user_circle"
+                android:visible="true"
+                myapp:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/gradebook"
+                android:title="Gradebook"
+                android:icon="@drawable/book"
+                android:visible="true"
+                myapp:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/assignments"
+                android:title="Assignments"
+                android:icon="@drawable/pencil"
+                android:visible="true"
+                myapp:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/courses"
+                android:title="Courses"
+                android:icon="@drawable/grad"
+                android:visible="true"
+                myapp:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/cal"
+                android:title="Calendar"
+                android:icon="@drawable/calendar"
+                android:visible="true"
+                myapp:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/announcements"
+                android:title="Announcements"
+                android:icon="@drawable/bullhorn"
+                android:visible="true"
+                myapp:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/settings"
+                android:title="Settings"
+                android:icon="@drawable/setting"
+                android:visible="true"
+                myapp:showAsAction="ifRoom" />
+
+            <item
+                android:id="@+id/sign_out"
+                android:title="Sign Out"
+                android:icon="@drawable/sign_out"
+                android:visible="true"
+                myapp:showAsAction="ifRoom"/>
+        </menu>
+    </item>
+
+</menu>
