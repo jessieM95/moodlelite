@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jessi.moodlelite">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -26,6 +27,9 @@
         <activity android:name=".Assignments" />
         <activity android:name=".Calendar" />
         <activity android:name=".Grades"/>
+        <activity android:name=".schedule"/>
     </application>
+
+
 
 </manifest>

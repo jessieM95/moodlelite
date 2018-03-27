@@ -71,8 +71,8 @@ public class Home extends AppCompatActivity {
         switch (id) {
             case R.id.user:
                 //startActivity(new Intent(this, About.class));
-                Toast.makeText(Home.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                break;
+                startActivity(new Intent(Home.this, schedule.class));
+                return true;
             case R.id.gradebook:
                 startActivity(new Intent(Home.this, Grades.class));
                 return true;

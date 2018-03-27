@@ -46,8 +46,8 @@ public class Calendar extends AppCompatActivity {
         switch (id) {
             case R.id.user:
                 //startActivity(new Intent(this, About.class));
-                Toast.makeText(Calendar.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                break;
+                startActivity(new Intent(Calendar.this, schedule.class));
+                return true;
             case R.id.gradebook:
                 startActivity(new Intent(Calendar.this, Grades.class));
                 return true;
