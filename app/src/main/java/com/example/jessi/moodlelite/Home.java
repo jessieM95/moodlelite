@@ -18,7 +18,7 @@ import java.util.Date;
 
 
 public class Home extends AppCompatActivity {
-    EditText et1;
+    TextView et1;
     TextView tv;
     TextView tv2;
     TextView tv3;
