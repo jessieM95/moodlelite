@@ -2,6 +2,7 @@ package com.example.jessi.moodlelite;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.widget.Button;
 
 public class Grades extends AppCompatActivity {
@@ -14,4 +15,8 @@ public class Grades extends AppCompatActivity {
         setContentView(R.layout.grades);
     }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 }
