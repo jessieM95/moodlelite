@@ -46,6 +46,7 @@
         android:ems="10"
         android:hint="netID:"
         android:inputType="textEmailAddress"
+        android:text="hi jessie"
         app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintHorizontal_bias="0.5"
