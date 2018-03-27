@@ -25,6 +25,7 @@
 
         <activity android:name=".Assignments" />
         <activity android:name=".Calendar" />
+        <activity android:name=".Grades"/>
     </application>
 
 </manifest>
