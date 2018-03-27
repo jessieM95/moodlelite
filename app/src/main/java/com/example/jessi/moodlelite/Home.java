@@ -1,6 +1,5 @@
 package com.example.jessi.moodlelite;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +8,8 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +23,6 @@ public class Home extends AppCompatActivity {
     TextView tv2;
     TextView tv3;
     ImageButton button1;
-    ImageButton button2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,20 +43,6 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        button2 = findViewById(R.id.imageButton3);
-        button2.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                //Creating the instance of PopupMenu
-                PopupMenu popup = new PopupMenu(Home.this, button2);
-                //Inflating the Popup using xml file
-                popup.getMenuInflater().inflate(R.menu.menu, popup.getMenu());
-
-                popup.show();//showing popup menu
-            }
-        });
-
 
         et1 = findViewById(R.id.editText3);
         et1.setText( DateFormat.getDateInstance().format(new Date()) );
@@ -74,6 +56,46 @@ public class Home extends AppCompatActivity {
         tv3 = findViewById(R.id.textView5);
         tv3.setMovementMethod(new ScrollingMovementMethod());
 
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.user:
+                //startActivity(new Intent(this, About.class));
+                Toast.makeText(Home.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.gradebook:
+                startActivity(new Intent(Home.this, Grades.class));
+                return true;
+            case R.id.assignments:
+                startActivity(new Intent(Home.this, Assignments.class));
+                return true;
+            case R.id.courses:
+                startActivity(new Intent(Home.this, Courses.class));
+                return true;
+            case R.id.cal:
+                startActivity(new Intent(Home.this, Calendar.class));
+                return true;
+            case R.id.announcements:
+                Toast.makeText(Home.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.settings:
+                Toast.makeText(Home.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.sign_out:
+                Toast.makeText(Home.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
 
     }
 
