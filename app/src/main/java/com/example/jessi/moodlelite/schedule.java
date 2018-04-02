@@ -62,14 +62,14 @@ public class schedule extends AppCompatActivity {
                 startActivity(new Intent(schedule.this, Calendar.class));
                 return true;
             case R.id.announcements:
-                Toast.makeText(schedule.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                break;
+                startActivity(new Intent(schedule.this, announcements.class));
+                return true;
             case R.id.settings:
                 Toast.makeText(schedule.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.sign_out:
-                Toast.makeText(schedule.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                break;
+                startActivity(new Intent(schedule.this, MainActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
 

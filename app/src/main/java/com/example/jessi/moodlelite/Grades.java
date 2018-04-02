@@ -58,14 +58,14 @@ public class Grades extends AppCompatActivity {
                 startActivity(new Intent(Grades.this, Calendar.class));
                 return true;
             case R.id.announcements:
-                Toast.makeText(Grades.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                break;
+                startActivity(new Intent(Grades.this, announcements.class));
+                return true;
             case R.id.settings:
                 Toast.makeText(Grades.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.sign_out:
-                Toast.makeText(Grades.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                break;
+                startActivity(new Intent(Grades.this, MainActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
 

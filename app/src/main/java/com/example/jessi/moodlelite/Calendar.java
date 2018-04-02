@@ -61,14 +61,14 @@ public class Calendar extends AppCompatActivity {
                 startActivity(new Intent(Calendar.this, Calendar.class));
                 return true;
             case R.id.announcements:
-                Toast.makeText(Calendar.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                break;
+                startActivity(new Intent(Calendar.this, announcements.class));
+                return true;
             case R.id.settings:
                 Toast.makeText(Calendar.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.sign_out:
-                Toast.makeText(Calendar.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                break;
+                startActivity(new Intent(Calendar.this, MainActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
 

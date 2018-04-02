@@ -9,25 +9,27 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class Assignments extends AppCompatActivity {
-    ImageButton button1;
+public class announcements extends AppCompatActivity {
+
+    ImageButton but1;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Get the view from activity_main.xml
-        setContentView(R.layout.assignments);
-        button1 = findViewById(R.id.imageButton2);
+        setContentView(R.layout.announcements);
 
-        // Capture button clicks
-        button1.setOnClickListener(new View.OnClickListener() {
+        but1 = findViewById(R.id.imageButton6);
+
+        but1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
                 // Start NewActivity.class
-                Intent myIntent = new Intent(Assignments.this,
+                Intent myIntent = new Intent(announcements.this,
                         Home.class);
                 startActivity(myIntent);
             }
         });
+
     }
 
     @Override
@@ -42,31 +44,32 @@ public class Assignments extends AppCompatActivity {
         switch (id) {
             case R.id.user:
                 //startActivity(new Intent(this, About.class));
-                startActivity(new Intent(Assignments.this, schedule.class));
+                startActivity(new Intent(announcements.this, schedule.class));
                 return true;
             case R.id.gradebook:
-                startActivity(new Intent(Assignments.this, Grades.class));
+                startActivity(new Intent(announcements.this, Grades.class));
                 return true;
             case R.id.assignments:
-                startActivity(new Intent(Assignments.this, Assignments.class));
+                startActivity(new Intent(announcements.this, Assignments.class));
                 return true;
             case R.id.courses:
-                startActivity(new Intent(Assignments.this, Courses.class));
+                startActivity(new Intent(announcements.this, Courses.class));
                 return true;
             case R.id.cal:
-                startActivity(new Intent(Assignments.this, Calendar.class));
+                startActivity(new Intent(announcements.this, Calendar.class));
                 return true;
             case R.id.announcements:
-                startActivity(new Intent(Assignments.this, announcements.class));
+                startActivity(new Intent(announcements.this, announcements.class));
                 return true;
             case R.id.settings:
-                Toast.makeText(Assignments.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(announcements.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.sign_out:
-                startActivity(new Intent(Assignments.this, MainActivity.class));
-                return true;
+                Toast.makeText(announcements.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
+                break;
         }
         return super.onOptionsItemSelected(item);
 
     }
+
 }

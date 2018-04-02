@@ -86,14 +86,14 @@ public class Home extends AppCompatActivity {
                 startActivity(new Intent(Home.this, Calendar.class));
                 return true;
             case R.id.announcements:
-                Toast.makeText(Home.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                break;
+                startActivity(new Intent(Home.this, announcements.class));
+                return true;
             case R.id.settings:
                 Toast.makeText(Home.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.sign_out:
-                Toast.makeText(Home.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                break;
+                startActivity(new Intent(Home.this, MainActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
 

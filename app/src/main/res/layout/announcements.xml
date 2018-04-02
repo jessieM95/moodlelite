@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="371dp"
+        android:layout_height="66dp"
+        android:background="@drawable/textview_border"
+        android:maxLines="3"
+        android:scrollbars="vertical"
+        android:text=" SomeClass 421 \n Prof. Some:  \n Yada yada yada STUFF yada yada yada yada yada yada yada yada yada \n yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada "
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.407" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="371dp"
+        android:layout_height="66dp"
+        android:background="@drawable/textview_border"
+        android:maxLines="3"
+        android:scrollbars="vertical"
+        android:text=" CS 233 \n Prof. Zilles: \n Yada CPU yada MUXES yada yada yada yada yada yada yada yada yada yada \n yada yada yada yada yada yada yada yada yada yada yada yada yada yada "
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/textView31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="371dp"
+        android:layout_height="66dp"
+        android:background="@drawable/textview_border"
+        android:maxLines="3"
+        android:scrollbars="vertical"
+        android:text=" LANG 499 \n Prof. Targaryan: \n Yada yada yada yada DRACARYS yada THE IRON THRONE IS MINE yada yada yada \n yada yada yada yada yada yada yada yada yada yada yada yada yada yada "
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.556" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="371dp"
+        android:layout_height="67dp"
+        android:background="@drawable/textview_border"
+        android:maxLines="3"
+        android:scrollbars="vertical"
+        android:text=" ASTR 350 \n Professor Liu: \n yada Galaxies yada STARS yada \n yada yada yada yada yada"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/home" />
+
+    <SearchView
+        android:layout_width="342dp"
+        android:layout_height="34dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01" />
+
+</android.support.constraint.ConstraintLayout>

@@ -48,14 +48,14 @@ public class Courses extends AppCompatActivity {
                 startActivity(new Intent(Courses.this, Calendar.class));
                 return true;
             case R.id.announcements:
-                Toast.makeText(Courses.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                break;
+                startActivity(new Intent(Courses.this, announcements.class));
+                return true;
             case R.id.settings:
                 Toast.makeText(Courses.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.sign_out:
-                Toast.makeText(Courses.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
-                break;
+                startActivity(new Intent(Courses.this, MainActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
 

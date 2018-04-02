@@ -10,7 +10,7 @@
         <menu>
             <item
                 android:id="@+id/user"
-                android:title="User"
+                android:title="Schedule"
                 android:icon="@drawable/user_circle"
                 android:visible="true"
                 myapp:showAsAction="ifRoom" />
