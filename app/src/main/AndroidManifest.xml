@@ -29,7 +29,8 @@
         <activity android:name=".Grades"/>
         <activity android:name=".schedule"/>
         <activity android:name=".announcements"/>
-        </application>
+        <activity android:name=".Data" />
+    </application>
 
 
 

@@ -8,6 +8,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class Home extends AppCompatActivity {
     TextView tv2;
     TextView tv3;
     ImageButton button1;
+    Button bt;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,19 @@ public class Home extends AppCompatActivity {
 
         tv3 = findViewById(R.id.textView5);
         tv3.setMovementMethod(new ScrollingMovementMethod());
+
+        bt = findViewById(R.id.button9);
+
+        // Capture button clicks
+        bt.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                // Start NewActivity.class
+                Intent myIntent = new Intent(Home.this,
+                        Data.class);
+                startActivity(myIntent);
+            }
+        });
 
 
     }
