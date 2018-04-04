@@ -25,6 +25,7 @@ public class Home extends AppCompatActivity {
     TextView tv3;
     ImageButton button1;
     Button bt;
+    Data data;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class Home extends AppCompatActivity {
 
         tv = findViewById(R.id.textView2);
         tv.setMovementMethod(new ScrollingMovementMethod());
+        tv.setText(Data.getCurrentCourses());
 
         tv2 = findViewById(R.id.textView4);
         tv2.setMovementMethod(new ScrollingMovementMethod());
@@ -68,6 +70,7 @@ public class Home extends AppCompatActivity {
                 Intent myIntent = new Intent(Home.this,
                         Data.class);
                 startActivity(myIntent);
+
             }
         });
 

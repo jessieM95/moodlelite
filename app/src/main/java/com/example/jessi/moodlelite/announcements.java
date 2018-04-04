@@ -3,10 +3,12 @@ package com.example.jessi.moodlelite;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class announcements extends AppCompatActivity {
@@ -29,6 +31,18 @@ public class announcements extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        TextView t1 = findViewById(R.id.textView28);
+        TextView t2 = findViewById(R.id.textView29);
+        TextView t3 = findViewById(R.id.textView30);
+        TextView t4 = findViewById(R.id.textView31);
+
+        t1.setMovementMethod(new ScrollingMovementMethod());
+        t2.setMovementMethod(new ScrollingMovementMethod());
+        t3.setMovementMethod(new ScrollingMovementMethod());
+        t4.setMovementMethod(new ScrollingMovementMethod());
+
+
 
     }
 

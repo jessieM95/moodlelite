@@ -17,7 +17,7 @@
         android:gravity="start"
         android:maxLines="3"
         android:scrollbars="vertical"
-        android:text=" Courses: \n ASTR 350 FA16: Introduction to Cosmology (Liu, X) \n CS 233 FA16: Computer Architecture (Zilles, C) \n LANG 499 1 FA16: High Valerian 1 (Targaryan, D)"
+        android:text=" test"
         android:textAlignment="textStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/black"
