@@ -1,10 +1,12 @@
 package com.example.jessi.moodlelite;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -27,7 +29,7 @@ public class Data extends AppCompatActivity {
     TextView txtJson;
     ProgressDialog pd;
     ArrayList past_courses;
-    static ArrayList current_courses;
+    ArrayList current_courses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,17 +40,18 @@ public class Data extends AppCompatActivity {
 
         new JsonTask().execute("https://learn.illinois.edu/webservice/rest/server.php?wstoken=9927efa95940f0e7e81c3231a201079a&moodlewsrestformat=json&wsfunction=core_enrol_get_users_courses&userid=87916");
 
+        btnHit = (Button) findViewById(R.id.btnHit);
+        btnHit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                TextView tv = (TextView) findViewById(R.id.textView2);
+                tv.setText(current_courses.toString());
+            }
+        });
     }
 
-    protected static String getCurrentCourses() {
-        String result = "";
-        for(int i = 0; i < current_courses.size(); i++)
-        {
-            result +=  current_courses.get(i).toString() + "\n";
-        }
-        return result;
+    public ArrayList getCurrentCourses() {
+        return current_courses;
     }
-
 
     private class JsonTask extends AsyncTask<String, String, String> {
 
@@ -141,7 +144,14 @@ public class Data extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-            txtJson.setText(getCurrentCourses());
+
+            String r = "";
+            for(int i = 0; i < current_courses.size(); i++)
+            {
+                r += current_courses.get(i).toString() + "\n";
+            }
+
+            txtJson.setText(r);
         }
 
 

@@ -17,7 +17,6 @@
         android:gravity="start"
         android:maxLines="3"
         android:scrollbars="vertical"
-        android:text=" test"
         android:textAlignment="textStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/black"

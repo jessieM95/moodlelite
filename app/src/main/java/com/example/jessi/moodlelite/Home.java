@@ -3,18 +3,17 @@ package com.example.jessi.moodlelite;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.PopupMenu;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -46,13 +45,11 @@ public class Home extends AppCompatActivity {
             }
         });
 
-
         et1 = findViewById(R.id.editText3);
         et1.setText( DateFormat.getDateInstance().format(new Date()) );
 
         tv = findViewById(R.id.textView2);
         tv.setMovementMethod(new ScrollingMovementMethod());
-        tv.setText(Data.getCurrentCourses());
 
         tv2 = findViewById(R.id.textView4);
         tv2.setMovementMethod(new ScrollingMovementMethod());
@@ -65,12 +62,9 @@ public class Home extends AppCompatActivity {
         // Capture button clicks
         bt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-
-                // Start NewActivity.class
                 Intent myIntent = new Intent(Home.this,
                         Data.class);
                 startActivity(myIntent);
-
             }
         });
 
