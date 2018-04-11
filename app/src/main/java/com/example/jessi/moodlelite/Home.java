@@ -12,6 +12,16 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,8 +33,11 @@ public class Home extends AppCompatActivity {
     TextView tv2;
     TextView tv3;
     ImageButton button1;
-    Button bt;
-    Data data;
+    static ArrayList past;
+    static ArrayList current;
+    String url = "https://learn.illinois.edu/webservice/rest/server.php?wstoken=9927efa95940f0e7e81c3231a201079a&moodlewsrestformat=json&wsfunction=core_enrol_get_users_courses&userid=87916";
+    static JSONArray array;
+    static JSONObject j;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,19 +69,7 @@ public class Home extends AppCompatActivity {
 
         tv3 = findViewById(R.id.textView5);
         tv3.setMovementMethod(new ScrollingMovementMethod());
-
-        bt = findViewById(R.id.button9);
-
-        // Capture button clicks
-        bt.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-                Intent myIntent = new Intent(Home.this,
-                        Data.class);
-                startActivity(myIntent);
-            }
-        });
-
-
+        makeRequest();
     }
 
     @Override
@@ -109,6 +110,47 @@ public class Home extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
 
+    }
+
+    public void makeRequest()
+    {
+        StringRequest request = new StringRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String string) {
+                try {
+                    array = new JSONArray(string);
+                    past = new ArrayList();
+                    current = new ArrayList();
+
+                    for (int i = 0; i < array.length(); ++i) {
+                        j = array.getJSONObject(i);
+                        if (j.getString("progress").equals("null")) {
+                            past.add(j.getString("fullname"));
+                        } else {
+                            current.add(j.getString("fullname"));
+                        }
+                    }
+
+                    String res = "";
+                    String r = "";
+                    for(int i = 0; i < current.size(); i++)
+                    {
+                        r = " Courses: " + "\n ";
+                        res += current.get(i).toString() + " \n ";
+                    }
+                    tv.setText(r+res);
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        RequestQueue rQueue = Volley.newRequestQueue(Home.this);
+        rQueue.add(request);
     }
 
 
