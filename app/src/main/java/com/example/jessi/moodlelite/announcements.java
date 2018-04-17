@@ -54,8 +54,6 @@ public class announcements extends AppCompatActivity {
 
         tv = findViewById(R.id.textView22);
         tv2 = findViewById(R.id.textView23);
-        //tv3 = findViewById(R.id.textView24);
-        //tv4 = findViewById(R.id.textView25);
         makeRequest();
 
     }
@@ -118,8 +116,6 @@ public class announcements extends AppCompatActivity {
 
                     tv.setText(current.get(0).toString() + '\n' + current.get(1).toString());
                     tv2.setText(current.get(2).toString() + '\n' + current.get(3).toString());
-                    //tv3.setText(current.get(4).toString() + '\n' + current.get(5).toString());
-                    //tv4.setText(current.get(6).toString() + '\n' + current.get(7).toString());
                 } catch (JSONException e1) {
                     e1.printStackTrace();
                 }

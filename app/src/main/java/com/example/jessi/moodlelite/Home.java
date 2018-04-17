@@ -6,10 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -45,13 +45,17 @@ public class Home extends AppCompatActivity {
     static JSONArray array2;
     static JSONObject j2;
 
+    @SuppressLint("NewApi")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
         et1 = findViewById(R.id.editText3);
-        et1.setText( DateFormat.getDateInstance().format(new Date()) );
+        String day = LocalDate.now().getDayOfWeek().name().toLowerCase();
+        String month = LocalDate.now().getMonth().name().toLowerCase();
+        et1.setText(String.valueOf(day.charAt(0)).toUpperCase() + day.substring(1) + ", " + String.valueOf(month.charAt(0)).toUpperCase() + month.toLowerCase().substring(1)+ " " +  LocalDate.now().getDayOfMonth());
+        et1.setGravity(Gravity.CENTER_HORIZONTAL);
 
         tv = findViewById(R.id.textView2);
         tv.setMovementMethod(new ScrollingMovementMethod());
@@ -159,7 +163,7 @@ public class Home extends AppCompatActivity {
                         current2.add(Html.fromHtml(temp.getString("message").toString()));
                     }
 
-                    tv3.setText("Annoucements: " + "\n" + current2.get(0).toString() + '\n' + current2.get(1).toString());
+                    tv3.setText(" Annoucements: " + "\n" + " " + current2.get(0).toString() + " " + '\n' + " " + current2.get(1).toString() + " ");
                 } catch (JSONException e1) {
                     e1.printStackTrace();
                 }
