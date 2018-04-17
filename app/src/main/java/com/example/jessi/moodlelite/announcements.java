@@ -2,7 +2,9 @@ package com.example.jessi.moodlelite;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,9 +13,27 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class announcements extends AppCompatActivity {
 
     ImageButton but1;
+    static ArrayList past;
+    static ArrayList current;
+    String url = "https://learn.illinois.edu/webservice/rest/server.php?wstoken=9927efa95940f0e7e81c3231a201079a&moodlewsrestformat=json&wsfunction=mod_forum_get_forum_discussions_paginated&forumid=195048";
+    static JSONArray array;
+    static JSONObject j;
+    TextView tv,tv2,tv3,tv4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,17 +52,11 @@ public class announcements extends AppCompatActivity {
             }
         });
 
-        TextView t1 = findViewById(R.id.textView28);
-        TextView t2 = findViewById(R.id.textView29);
-        TextView t3 = findViewById(R.id.textView30);
-        TextView t4 = findViewById(R.id.textView31);
-
-        t1.setMovementMethod(new ScrollingMovementMethod());
-        t2.setMovementMethod(new ScrollingMovementMethod());
-        t3.setMovementMethod(new ScrollingMovementMethod());
-        t4.setMovementMethod(new ScrollingMovementMethod());
-
-
+        tv = findViewById(R.id.textView22);
+        tv2 = findViewById(R.id.textView23);
+        //tv3 = findViewById(R.id.textView24);
+        //tv4 = findViewById(R.id.textView25);
+        makeRequest();
 
     }
 
@@ -84,6 +98,40 @@ public class announcements extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
 
+    }
+
+    public void makeRequest()
+    {
+        StringRequest request = new StringRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String string) {
+                try {
+                    current = new ArrayList();
+                    j = new JSONObject(string);
+                    array = j.getJSONArray("discussions");
+
+                    for (int i = 0; i < array.length(); ++i) {
+                        JSONObject temp = array.getJSONObject(i);
+                        current.add(temp.getString("name"));
+                        current.add(Html.fromHtml(temp.getString("message").toString()));
+                    }
+
+                    tv.setText(current.get(0).toString() + '\n' + current.get(1).toString());
+                    tv2.setText(current.get(2).toString() + '\n' + current.get(3).toString());
+                    //tv3.setText(current.get(4).toString() + '\n' + current.get(5).toString());
+                    //tv4.setText(current.get(6).toString() + '\n' + current.get(7).toString());
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        RequestQueue rQueue = Volley.newRequestQueue(announcements.this);
+        rQueue.add(request);
     }
 
 }

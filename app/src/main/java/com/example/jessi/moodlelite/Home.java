@@ -45,18 +45,18 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.home);
 
 
-        button1 = findViewById(R.id.imageButton4);
+        /*button1 = findViewById(R.id.imageButton4);
 
         // Capture button clicks
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
                 // Start NewActivity.class
-                Intent myIntent = new Intent(Home.this,
+                Intent intent = new Intent(Home.this,
                         Calendar.class);
-                startActivity(myIntent);
+                startActivity(intent);
             }
-        });
+        });*/
 
         et1 = findViewById(R.id.editText3);
         et1.setText( DateFormat.getDateInstance().format(new Date()) );
@@ -70,6 +70,9 @@ public class Home extends AppCompatActivity {
         tv3 = findViewById(R.id.textView5);
         tv3.setMovementMethod(new ScrollingMovementMethod());
         makeRequest();
+
+
+
     }
 
     @Override
