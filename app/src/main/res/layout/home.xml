@@ -70,7 +70,7 @@
         android:layout_width="383dp"
         android:layout_height="132dp"
         android:background="@drawable/textview_border"
-        android:text=" Announcements:"
+        android:maxLines="3"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -80,37 +80,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.556" />
 
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="374dp"
-        android:layout_height="46dp"
-        android:maxLines="2"
-        android:scrollbars="vertical"
-        android:text="MATH 357 Prof. Pythagoras: \nBlah blah blah math blah blah blah pythagorean theorem blah blah blah 42"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="375dp"
-        android:layout_height="49dp"
-        android:maxLines="2"
-        android:scrollbars="vertical"
-        android:text="CS233 Prof. Moore: \nBlah blah blah blah computer science blah blah blah and you must blah blah"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515" />
 
     <TableLayout
         android:layout_width="379dp"

@@ -1,8 +1,10 @@
 package com.example.jessi.moodlelite;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,7 +32,6 @@ import java.util.Date;
 public class Home extends AppCompatActivity {
     TextView et1;
     TextView tv;
-    TextView tv2;
     TextView tv3;
     ImageButton button1;
     static ArrayList past;
@@ -39,24 +40,15 @@ public class Home extends AppCompatActivity {
     static JSONArray array;
     static JSONObject j;
 
+    static ArrayList current2;
+    String url2 = "https://learn.illinois.edu/webservice/rest/server.php?wstoken=9927efa95940f0e7e81c3231a201079a&moodlewsrestformat=json&wsfunction=mod_forum_get_forum_discussions_paginated&forumid=195048";
+    static JSONArray array2;
+    static JSONObject j2;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
-
-
-        /*button1 = findViewById(R.id.imageButton4);
-
-        // Capture button clicks
-        button1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-
-                // Start NewActivity.class
-                Intent intent = new Intent(Home.this,
-                        Calendar.class);
-                startActivity(intent);
-            }
-        });*/
 
         et1 = findViewById(R.id.editText3);
         et1.setText( DateFormat.getDateInstance().format(new Date()) );
@@ -64,15 +56,10 @@ public class Home extends AppCompatActivity {
         tv = findViewById(R.id.textView2);
         tv.setMovementMethod(new ScrollingMovementMethod());
 
-        tv2 = findViewById(R.id.textView4);
-        tv2.setMovementMethod(new ScrollingMovementMethod());
-
-        tv3 = findViewById(R.id.textView5);
+        tv3 = findViewById(R.id.textView3);
         tv3.setMovementMethod(new ScrollingMovementMethod());
         makeRequest();
-
-
-
+        makeRequestAnnouce();
     }
 
     @Override
@@ -156,5 +143,35 @@ public class Home extends AppCompatActivity {
         rQueue.add(request);
     }
 
+    public void makeRequestAnnouce()
+    {
+        StringRequest request = new StringRequest(url2, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String string) {
+                try {
+                    current2 = new ArrayList();
+                    j2 = new JSONObject(string);
+                    array2 = j2.getJSONArray("discussions");
+
+                    for (int i = 0; i < 1; ++i) {
+                        JSONObject temp = array2.getJSONObject(i);
+                        current2.add(temp.getString("name"));
+                        current2.add(Html.fromHtml(temp.getString("message").toString()));
+                    }
+
+                    tv3.setText("Annoucements: " + "\n" + current2.get(0).toString() + '\n' + current2.get(1).toString());
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        RequestQueue rQueue = Volley.newRequestQueue(Home.this);
+        rQueue.add(request);
+    }
 
 }
