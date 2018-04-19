@@ -2,10 +2,12 @@ package com.example.jessi.moodlelite;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,10 +25,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 
 public class Home extends AppCompatActivity {
@@ -51,10 +51,24 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
+        // Generate random passport number
+        /*Random rand = new Random();
+        int passport = rand.nextInt(1000000);
+        String scheme = "moodlelite";
+        String loginUrl = "https://learn.illinois.edu/admin/tool/mobile/launch.php?passport=" + passport + "&service=moodle_mobile_app&urlscheme=" + scheme;
+
+        // Launch login
+        Intent loginIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(loginUrl));
+        startActivity(loginIntent);
+
+        // Get data token from login return
+        Intent intent = getIntent();
+        Uri data = intent.getData();*/
+
         et1 = findViewById(R.id.editText3);
         String day = LocalDate.now().getDayOfWeek().name().toLowerCase();
         String month = LocalDate.now().getMonth().name().toLowerCase();
-        et1.setText(String.valueOf(day.charAt(0)).toUpperCase() + day.substring(1) + ", " + String.valueOf(month.charAt(0)).toUpperCase() + month.toLowerCase().substring(1)+ " " +  LocalDate.now().getDayOfMonth());
+        et1.setText(String.valueOf(day.charAt(0)).toUpperCase() + day.substring(1) + ", " + String.valueOf(month.charAt(0)).toUpperCase() + month.toLowerCase().substring(1) + " " + LocalDate.now().getDayOfMonth());
         et1.setGravity(Gravity.CENTER_HORIZONTAL);
 
         tv = findViewById(R.id.textView2);
@@ -64,6 +78,7 @@ public class Home extends AppCompatActivity {
         tv3.setMovementMethod(new ScrollingMovementMethod());
         makeRequest();
         makeRequestAnnouce();
+
     }
 
     @Override

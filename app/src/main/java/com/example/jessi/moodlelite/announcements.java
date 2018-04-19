@@ -28,7 +28,6 @@ import java.util.ArrayList;
 public class announcements extends AppCompatActivity {
 
     ImageButton but1;
-    static ArrayList past;
     static ArrayList current;
     String url = "https://learn.illinois.edu/webservice/rest/server.php?wstoken=9927efa95940f0e7e81c3231a201079a&moodlewsrestformat=json&wsfunction=mod_forum_get_forum_discussions_paginated&forumid=195048";
     static JSONArray array;
